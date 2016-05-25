@@ -3,6 +3,8 @@ import java.rmi.*;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.List;
+
 import javax.swing.JTextArea;
 
 public class MyServer extends UnicastRemoteObject implements IMyServer {
@@ -65,5 +67,29 @@ public class MyServer extends UnicastRemoteObject implements IMyServer {
 	@Override
 	public void registerClient(String name) throws RemoteException {
 		WriteLog(name + " sie polaczyl.");
+	}
+
+	@Override
+	public List<Product> searchProducts(SearchFilter myFilter) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Product> showAllProducts() throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void buyProduct(Product myProduct) throws RemoteException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Product showProduct(Product myProduct) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
