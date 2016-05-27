@@ -11,9 +11,11 @@ public interface IMyServer extends Remote {
 	public boolean registerClient(Customer client) throws RemoteException;
 	public boolean isClientExists(String name) throws RemoteException;
 	public void logoutClient(Customer client) throws RemoteException;
+	public void logoutAllClient() throws RemoteException;
 	
-	public List<Product> searchProducts(SearchFilter myFilter) throws RemoteException;
+	public List<Product> searchProducts(String myFilter) throws RemoteException;
 	public List<Product> showAllProducts() throws RemoteException;
 	public void buyProduct(Product myProduct) throws RemoteException;
 	public void addProduct(Product myProduct) throws RemoteException;
+	public void deleteProduct(Product myProduct) throws RemoteException;
 }

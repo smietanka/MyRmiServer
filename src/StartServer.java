@@ -10,7 +10,7 @@ import java.util.*;
 
 public class StartServer {
 	public static JTextArea myLogBox;
-	public static JButton runServButton, stopServButton;
+	public static JButton runServButton, stopServButton, resetClientsButton;
 	public static JFrame myFrame;
 	public static IMyServer myServer;
 
@@ -42,10 +42,21 @@ public class StartServer {
 		mainPanel.add(centerPanel, BorderLayout.CENTER);
 		runServButton = new JButton("Uruchom serwer");
 		stopServButton = new JButton("Zatrzymaj serwer");
+		resetClientsButton = new JButton("Usun wszystkich zalogowanych.");
 
 		topPanel.add(runServButton);
 		topPanel.add(stopServButton);
-
+		topPanel.add(resetClientsButton);
+		
+		resetClientsButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					myServer.logoutAllClient();
+				} catch (RemoteException e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
 		runServButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				runServer();
